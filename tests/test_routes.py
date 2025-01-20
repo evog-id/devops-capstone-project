@@ -1,6 +1,5 @@
 """
 Account API Service Test Suite
-
 Test cases can be run with the following:
   nosetests -v --with-spec --spec-color
   coverage report -m
@@ -12,7 +11,6 @@ from tests.factories import AccountFactory
 from service.common import status  # HTTP Status Codes
 from service.models import db, Account, init_db
 from service.routes import app
-from service import talisman
 from service import talisman
 
 DATABASE_URI = os.getenv(
@@ -189,7 +187,6 @@ class TestAccountService(TestCase):
         }
         for key, value in headers.items():
             self.assertEqual(response.headers.get(key), value)
-
 
     def test_cors_security(self):
         """It should return a CORS header"""
